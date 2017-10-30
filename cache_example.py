@@ -17,7 +17,6 @@ except:
 def getLocationWithCaching(loc):
     url = serviceurl + urllib.parse.urlencode(
         {'address': loc})
-
     if loc in CACHE_DICTION:
         print("Data was in the cache")
         return CACHE_DICTION[loc]
@@ -44,4 +43,5 @@ while True:
     country = data["results"][0]["address_components"]
     for d in country:
         if 'country' in d["types"]:
+            print('************')
             print(d["short_name"])
